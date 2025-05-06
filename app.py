@@ -27,43 +27,6 @@ cities = ['Hyderabad', 'Bangalore', 'Mumbai', 'Indore', 'Kolkata', 'Delhi',
           'Sharjah', 'Mohali', 'Bengaluru']
 
 
-# Loading our machine learning model from a saved pickle file
-
-pipe = pickle.load(open('pipe.pkl', 'rb')) #remember all folders including pipe.pkl,
-# notebook, datasets exist in the same directory
-
-# Setting up the app's title
-
-st.title('IPL Win Predictor')
-
-
-# Setting up the layout with two columns
-col1, col2 = st.columns(2)
-
-# Creating a dropdown selector for the batting team
-with col1:
-    battingteam = st.selectbox('Select the batting team', sorted(teams))
-
-# Creating a dropdown selector for the bowling team
-with col2:
-
-    bowlingteam = st.selectbox('Select the bowling team', sorted(teams))
-
-
-# Creating a dropdown selector for the city where the match is being played
-city = st.selectbox(
-    'Select the city where the match is being played', sorted(cities))
-
-# Creating a numeric input for the target score using number_input method in streamlit
-target = int(st.number_input('Target', step=1))
-
-# Setting up the layout with three columns
-col3, col4, col5 = st.columns(3)
-
-# Creating a numeric input for the current score
-with col3:
-    score = int(st.number_input('Score', step=1))
-
 # Creating a numeric input for the number of overs completed
 with col4:
     overs = int(st.number_input('Overs Completed', step=1))
